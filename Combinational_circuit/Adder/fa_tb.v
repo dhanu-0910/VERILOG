@@ -1,20 +1,21 @@
 module full_adder_tb;
-
-reg a,b,cin;
-wire sum,cout;
-
-full_adder uut(.a(a),.b(b),.cin(cin),.sum(sum),.cout(cout));
-    initial begin
-        $display("A B Ci | S Co");
-        $monitor("%b %b %b | %b %b",a,b,cin,sum,cout);
-        a=0;b=0;cin=0;#10;
-        a=0;b=0;cin=1;#10;
-        a=0;b=1;cin=0;#10;
-        a=0;b=1;cin=1;#10;
-        a=1;b=0;cin=0;#10;
-        a=1;b=0;cin=1;#10;
-        a=1;b=1;cin=0;#10;
-        a=1;b=1;cin=1;#10;
-        $finish;
-    end
+reg a,b,c;
+wire s,cout;
+full_adder DUT(.a(a),.b(b),.c(c),.s(s),.cout(cout));
+initial begin
+$dumpfile("out_full_adder.vcd");
+$dumpvars(0,full_adder_tb);
+$monitor("time=%0t  | a=%b b=%b c=%b | s=%b cout=%b",$time,a,b,c,s,cout);
+end
+initial begin
+a=0;b=0;c=0;#10;
+a=0;b=0;c=1;#10;
+a=0;b=1;c=0;#10;
+a=0;b=1;c=1;#10;
+a=1;b=0;c=0;#10;
+a=1;b=0;c=1;#10;
+a=1;b=1;c=0;#10;
+a=1;b=1;c=1;#10;
+$finish;
+end
 endmodule
