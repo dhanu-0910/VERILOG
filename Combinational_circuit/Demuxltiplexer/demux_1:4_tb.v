@@ -1,11 +1,11 @@
-module demux_4to1_tb;
+module demux_1to4_tb;
 reg d;
 reg [1:0]s;
 wire y0,y1,y2,y3;
-demux_4to1 dut(.d(d),.s(s),.y0(y0),.y1(y1),.y2(y2),.y3(y3));
+demux_1to4 dut(.d(d),.s(s),.y0(y0),.y1(y1),.y2(y2),.y3(y3));
 initial begin
-    $dumpfile("out_demux_4to1.vcd");
-    $dumpvars(0,demux_4to1_tb);
+    $dumpfile("out_demux_1to4.vcd");
+    $dumpvars(0,demux_1to4_tb);
 end
 initial begin
     $monitor("d=%b s=%b | y0=%b y1=%b y2=%b y3=%b",d,s,y0,y1,y2,y3);
