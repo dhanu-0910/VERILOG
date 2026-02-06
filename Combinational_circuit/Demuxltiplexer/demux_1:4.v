@@ -1,4 +1,4 @@
-module demux_4to1(input d,input [1:0]s, output reg y0,y1,y2,y3);
+module demux_1to4(input d,input [1:0]s, output reg y0,y1,y2,y3);
 always @(*)begin
     y0=0;
     y1=0;
