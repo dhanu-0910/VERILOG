@@ -1,8 +1,8 @@
 module b_to_g_tb;
-parameter N = 6;
-reg  [N-1:0] b;
-wire [N-1:0] g;
-b_to_g #(N) dut (.b(b), .g(g));
+parameter n = 6;
+reg  [n-1:0] b;
+wire [n-1:0] g;
+b_to_g #(n) dut (.b(b), .g(g));
 initial begin
     $dumpfile("out_b_to_g.vcd");
     $dumpvars(0,b_to_g_tb);
