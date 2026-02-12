@@ -20,8 +20,11 @@ initial begin
     t=0;#10;
     rst=1;
     t=1;#10;
-    rst=0;
+    rst=1;
+    t=1;#5;
+    rst=0;#10
     t=0;#10;
+    t=1;#10;
     $finish;
 end
 endmodule
