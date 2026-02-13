@@ -12,8 +12,7 @@ always @(posedge clk) begin
 end
 endmodule
 
-// Code your testbench here
-// or browse Examples
+//Testbench
 module siso_tb;
   reg clk,si,rst;
   wire so;
