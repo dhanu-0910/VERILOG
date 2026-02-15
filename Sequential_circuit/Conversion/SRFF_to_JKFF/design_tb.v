@@ -1,7 +1,7 @@
 //SRFF
 module srff(input s,r,clk,output reg q);
+  initial q=0;
   always@(posedge clk) begin
-    q=0;
     if(s==0 && r==0)
       q<=q;
     else if(s==0 && r==1)
