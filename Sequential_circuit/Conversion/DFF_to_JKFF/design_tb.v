@@ -6,7 +6,7 @@ module dff(input d,clk,output reg q);
   end
 endmodule
 //JKFF
-module srff(input j, k, clk, output q);
+module jkff(input j, k, clk, output q);
   wire d;
   wire q_int;
   assign d = (j&~q_int)|(~k&q_int);
@@ -17,7 +17,7 @@ endmodule
 module jkff_tb;
   reg j,k,clk;
   wire q;
-  srff dut(.*);
+  jkff dut(.*);
   initial begin
     $dumpfile("out_jkff.vcd");
     $dumpvars(0,jkff_tb);
