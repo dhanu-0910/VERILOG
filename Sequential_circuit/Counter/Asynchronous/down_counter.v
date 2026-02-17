@@ -9,7 +9,7 @@ module tff(input t,clk,rst,output reg q);
   end
 endmodule
 //async
-module up_counter #(parameter n=4)(input clk,rst,output [n-1:0]q);
+module down_counter #(parameter n=4)(input clk,rst,output [n-1:0]q);
   genvar i;
   generate
     for(i=0;i<n;i=i+1) begin:ripple
@@ -21,14 +21,14 @@ module up_counter #(parameter n=4)(input clk,rst,output [n-1:0]q);
   endgenerate
 endmodule
 //Testbench
-module up_counter_tb;
+module down_counter_tb;
   parameter n=4;
   reg clk,rst;
   wire [n-1:0]q;
   up_counter #(n)dut(.*);
   initial begin
-    $dumpfile("up_counter.vc");
-    $dumpvars(0,up_counter_tb);
+    $dumpfile("down_counter.vc");
+    $dumpvars(0,down_counter_tb);
     $monitor("clk=%b rst=%b q=%b",clk,rst,q);
   end
   always #5 clk=~clk;
