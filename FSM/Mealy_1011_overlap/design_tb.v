@@ -11,7 +11,6 @@ module mealy_1011(input clk,rst,x,output reg y);
       s<=ns;
   end
   always @(*)begin
-    y=0;
     case(s)
       s0:begin
         if(x)
@@ -34,7 +33,6 @@ module mealy_1011(input clk,rst,x,output reg y);
       s3:begin
         if(x) begin
           ns=s1;
-          y=1;
         end
         else
           ns=s2;
@@ -42,7 +40,14 @@ module mealy_1011(input clk,rst,x,output reg y);
       default: ns=s0;
     endcase
   end
+  always @(posedge clk or posedge rst) begin
+    if(rst)
+      y<=0;
+    else
+      y<=(s==s3 && x);
+  end
 endmodule
+
   //Testbench
 module mealy_1011_tb;
   reg clk,rst,x;
