@@ -1,4 +1,4 @@
-module up_counter #(parameter n=4)(input clk,rst,output reg [n-1:0]q);
+module down_counter #(parameter n=4)(input clk,rst,output reg [n-1:0]q);
   always @(posedge clk) begin
     if(rst)
       q<=0;
@@ -7,11 +7,11 @@ module up_counter #(parameter n=4)(input clk,rst,output reg [n-1:0]q);
   end
 endmodule
 //Testbench
-module up_counter_tb;
+module down_counter_tb;
   parameter n=4;
   reg clk,rst;
   wire [n-1:0]q;
-  up_counter #(n)dut(.*);
+  down_counter #(n)dut(.*);
   initial begin
     $monitor("clk=%b rst=%b q=%b",clk,rst,q);
   end
@@ -21,8 +21,8 @@ module up_counter_tb;
     clk=1;
     rst=1;#10;
     rst=0;#150;
-     $dumpfile("ab.vcd");
-    $dumpvars(0,up_counter_tb);
+    $dumpfile("out_down_counter.vcd");
+    $dumpvars(0,down_counter_tb);
   #500  $finish;
   end
 endmodule
