@@ -10,7 +10,7 @@ end
 endmodule
 
 //Testbench
-module sipo_tb;
+module sipo_tb; 
 reg clk,si,rst;
 wire [3:0]po;
 sipo dut(.*);
