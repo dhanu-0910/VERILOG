@@ -8,7 +8,7 @@ initial begin
     $monitor("time=%0t clk=%b rst=%b | d=%b | q=%b ",$time,clk,rst,d,q);
 end
 initial begin
-    clk=1;
+    clk=1; 
     forever #5 clk=~clk;
 end
 initial begin
