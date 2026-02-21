@@ -6,7 +6,7 @@ initial begin
     $dumpfile("out_jk_ff.vcd");
     $dumpvars(1,jkff_tb);
     $monitor("time=%0t clk= %B rst=%B |J=%B K=%B |Q= %B",$time,clk,rst,j,k,q);
-end
+end 
 initial begin
     clk=1;
     forever #5 clk=~clk;
