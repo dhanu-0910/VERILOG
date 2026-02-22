@@ -6,6 +6,6 @@ module ram(input [7:0]data,input [15:0]addr,input clk,w_e,output [7:0]dout);
       mem[addr]<=data;
     else
       reg_addr<=addr;
-  end
+  end 
   assign dout=mem[reg_addr];
 endmodule
