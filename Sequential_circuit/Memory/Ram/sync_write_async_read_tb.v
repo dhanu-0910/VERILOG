@@ -1,0 +1,137 @@
+module ram_tb;
+  reg [7:0]data;
+  reg [15:0]addr;
+  reg clk,w_e;
+  wire [7:0]dout;
+  ram dut(.*);
+  initial begin
+    $dumpfile("out_ram.vcd");
+    $dumpvars(0,ram_tb);
+    $monitor("time=%0t INPUT VALUES: din=%b addr=%b w_en=%b clk=%b OUTPUT VALUES: dout=%b",$time,data,addr,w_e,clk,dout);
+  end
+  initial begin
+    clk=0;
+    forever #5 clk=~clk;
+  end
+  initial begin
+    addr=16'd65535;
+    w_e=1;
+    #10
+    data=8'd120;
+    addr=16'd64356;
+    w_e=1;
+    #10
+    data=8'd151;
+    addr=16'd54321;
+    w_e=1;
+    #10
+    data=8'd06;
+    addr=16'd24;
+    w_e=1;
+    #10
+    data=8'd192;
+    addr=16'd43526;
+    w_e=1;
+    #10
+    data=8'd12;
+    addr=16'd6555;
+    w_e=0;
+    #10
+    data=8'd112;
+    addr=16'd45;
+    w_e=1;
+    #10
+    data=8'd12;
+    addr=16'd45;
+    w_e=0;
+    #10
+     data=8'd200;
+    addr=16'd07;
+    w_e=1;
+    #10
+    data=8'd250;
+    addr=16'd65535;
+    w_e=1;
+    #10
+    data=8'd120;
+    addr=16'd0;
+    w_e=1;
+    #10
+    data=8'd151;
+    addr=16'd18;
+    w_e=0;
+    #10
+    data=8'd06;
+    addr=16'd007;
+    w_e=0;
+    #10
+    data=8'd180;
+    addr=16'd35;
+    w_e=1;
+    #10
+    data=8'd54;
+    addr=16'd007;
+    w_e=1;
+    #10
+    data=8'd12;
+    addr=16'd12345;
+    w_e=1;
+    #10
+    data=8'd112;
+    addr=16'd64356;
+    w_e=0;
+    #10
+    data=8'd12;
+    addr=16'd6;
+    w_e=1;
+    #10
+    data=8'd250;
+    addr=16'd535;
+    w_e=1;
+    #10
+    data=8'd250;
+    addr=16'd5;
+    w_e=1;
+    #10
+    data=8'd120;
+    addr=16'd5535;
+    w_e=0;
+    #10
+    data=8'd151;
+    addr=16'd535;
+    w_e=0;
+    #10
+    data=8'd06;
+    addr=16'd35;
+    w_e=0;
+    #10
+    data=8'd192;
+    addr=16'd5;
+    w_e=0;
+    #10
+    data=8'd180;
+    addr=16'd6535;
+    w_e=0;
+    #10
+    data=8'd54;
+    addr=16'd635;
+    w_e=0;
+    #10
+    data=8'd12;
+    addr=16'd5535;
+    w_e=0;
+    #10
+    data=8'd112;
+    addr=16'd35;
+    w_e=1;
+    #10
+    data=8'd250;
+    addr=16'd18;
+    w_e=0;
+    #10
+    data=8'd06;
+    addr=16'd7;
+    w_e=1;
+    #10 $finish;
+  end
+endmodule
