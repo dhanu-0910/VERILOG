@@ -5,7 +5,7 @@ module ram_tb;
   wire [7:0]dout;
   ram dut(.*);
   initial begin
-    $dumpfile("out_ram.vcd");
+    $dumpfile("out_ram.vcd"); 
     $dumpvars(0,ram_tb);
     $monitor("time=%0t INPUT VALUES: din=%b addr=%b w_en=%b clk=%b OUTPUT VALUES: dout=%b",$time,data,addr,w_e,clk,dout);
   end
