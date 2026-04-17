@@ -24,7 +24,6 @@ endmodule
 module odd_even_tb #(parameter n=6,count=20);
   reg x;
   wire [n-1:0]z[count-1:0];
-  integer i;
   odd_even dut(.*);
   initial begin
     $dumpfile("odd_even.vcd");
