@@ -1,4 +1,5 @@
-
+/*Write a Verilog module that blinks an LED at 1 Hz using a 50 MHz clock. The LED must
+toggle every 0.5 seconds. Inputs are clk and rst, output is led.*/
 module led(input clk,input rst,output reg led_clk);
   reg [24:0]count;
   always @(posedge clk) begin
