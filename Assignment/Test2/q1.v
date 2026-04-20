@@ -27,7 +27,7 @@ module led_tb;
   initial begin
     $dumpfile("led.vcd");
     $dumpvars(0,led_tb);
-    $monitor("Time=%0t | rst=%b | led_clk=%b", $time, rst, led_clk);
+    $monitor("Time=%0t | clk=%0d | rst=%b | led_clk=%b", $time, clk, rst, led_clk);
    end
   initial begin
     clk = 0;
