@@ -1,3 +1,8 @@
+/*Design a finite state machine that has an input x and output y. The output should
+be asserted whenever x = 1 or x = 0 for three consecutive clock pulses. In other
+words, the FSM should detect the sequences 111 or 000. Overlapping sequences
+are allowed, so a sequence of four or five 0s or 1s should also output 1.*/
+
 module fsm (input clk,input reset,input x,output reg y);
 
 parameter S0 = 3'd0,Z1 = 3'd1,Z2 = 3'd2,Z3 = 3'd3,O1 = 3'd4,O2 = 3'd5,O3 = 3'd6;
