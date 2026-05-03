@@ -1,6 +1,24 @@
 /*To design a state diagram and implement a circuit that outputs a "1" if the
 aggregate serial binary input is divisible by 5, we first need to understand the
 problem and then translate it into Verilog code.*/
+
+/*Forumula to calculate number divisible by 5 using remainder = (2*r + x)%5
+s0:remainder=0 
+0 --> (2*0 + 0)%5 = 0
+1 --> (2*0 + 1)%5 = 1
+s1:remainder=1
+0 --> (2*1 + 0)%5 = 2
+1 --> (2*1 + 1)%5 = 3
+s2:remainder=2 
+0 --> (2*2 + 0)%5 = 4
+1 --> (2*2 + 1)%5 = 0
+s3:remainder=3 
+0 --> (2*3 + 0)%5 = 1
+1 --> (2*3 + 1)%5 = 2
+s4:remainder=4 
+0 --> (2*4 + 0)%5 = 3
+1 --> (2*4 + 1)%5 = 4*/
+
 module fsm(input clk,input reset,input x,output reg z);
   parameter S0=3'd0,S1=3'd1,S2=3'd2,S3=3'd3,S4=3'd4;
   reg [2:0] state, next_state;
@@ -24,7 +42,7 @@ module fsm(input clk,input reset,input x,output reg z);
     if (reset)
         z = 1'b0;
     else begin
-      case(state)
+      case(state)                                       
         S0: z = 1'b1;
         default: z = 1'b0;
       endcase
