@@ -1,3 +1,6 @@
+/*To design a state diagram and implement a circuit that outputs a "1" if the
+aggregate serial binary input is divisible by 5, we first need to understand the
+problem and then translate it into Verilog code.*/
 module fsm(input clk,input reset,input x,output reg z);
   parameter S0=3'd0,S1=3'd1,S2=3'd2,S3=3'd3,S4=3'd4;
   reg [2:0] state, next_state;
