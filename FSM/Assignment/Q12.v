@@ -1,3 +1,4 @@
+/*Design a finite state machine for a serial binary input which is divisible by 5.*/ 
 
 module fsm(input clk,input reset,input x,output reg z);
   parameter S0=3'd0,S1=3'd1,S2=3'd2,S3=3'd3,S4=3'd4;
